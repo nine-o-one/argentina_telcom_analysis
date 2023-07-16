@@ -41,11 +41,11 @@ Entre el 2014 y el 2022, el número de conexiones a internet en argentina ha cre
 
 Sin embargo, desde 2018 con el início del despliegue de redes con tecnología de Fibra óptica domiciliarias, se ha iniciado la migración tecnológica acompañada de un incremento en la velocidad contratada, debido principalmente al relevo generacional de los Milenials que trae consigo nuevos hábitos de consumo digitales (Streaming, Gaming, Redes Sociales, entre otros). 
 
-![plot1](.\img\g1.png)
+![plot1](/img/g1.png)
 
 Por otra parte, aunque el número de conexiones a internet sigue creciendo, argentina (con 76.6 conexiones por cada 100 hogares) continúa por debajo del promedio en América Continental que se encuntra en 81.4 conexiones por cada 100 hogares en 2021<sup>[1](#nota1)</sup>. Este panorama es incluso peor frente a la adopción de fibra óptica domiciliaria, donde Argentina se encuentra en último lugar con solo el 20,2 por debajo incluso de paises vecinos como Chile y Brassil<sup>[2](#nota2)</sup> debido a las fuertes regulaciones existentes y el DNU de regulación de precios<sup>[3](#nota3)</sup>. 
 
-![plot2](.\img\g2.png)
+![plot2](/img/g2.png)
 
  <sup><a href="#nota1">1</a></sup> : https://es.statista.com/estadisticas/598732/hogares-con-acceso-a-internet-en-el-mundo-por-region
 
@@ -57,7 +57,7 @@ Por otra parte, aunque el número de conexiones a internet sigue creciendo, arge
 
 A partir de 2018, **la velocidad máxima de bajada ha crecido de forma sostenida a un ritmo cercano a los 20 Mbps por año.** Sin embargo, el mayor número de conexiones de alta velocidad se encuentra en los centros poblados donde se ha realizado el despliegue de redes de Fibra ótica, como Caba, Buenos Aires, Cordoba y Tucuman.
 
-![plot3](.\img\g3.png)
+![plot3](/img/g3.png)
 
 ### Distribución demografíca
 
@@ -74,7 +74,7 @@ Resultados provisionales - INDEC*</sup>
 
 Este fenómeno se da en gran medida como resultado de la devaluación del metro cuadrado de vivienda en el área<sup>[4](#nota4)</sup> y la tendencia creciente a hogares unipersonales como poryecto de vida de los Milenials.
 
- ![plot4](.\img\g4.png)
+ ![plot4](/img/g4.png)
 
  <sup><a href="#nota4">4</a></sup>: https://www.infobae.com/economia/2022/06/19/mercado-inmobiliario-en-que-barrios-portenos-bajaron-mas-los-precios-de-los-departamentos/
 
@@ -86,7 +86,7 @@ Sin embargo, para 2019 con un escenario inflacional sin presedentes<sup>[5](#not
 
 No se encuentra ninguna relación entre el precio del dolar y los ingresos de los operadores, ya que las cuentas se cobran en pesos argentinos. Sin embargo, **la variación del precio del dolar impacta negativamente la inversión en infraestructura de telecomuniaciones** ya que le mayor parte de los insumos requeridos para los proyectos de modernización son importados.
 
- ![plot5](.\img\g5.png)
+ ![plot5](/img/g5.png)
 
  <sup><a href="#nota5">5</a></sup> : https://elpais.com/economia/2020/01/15/actualidad/1579119241_444665.html
 
