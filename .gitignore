@@ -1,6 +1,8 @@
+venv/Lib
+venv/Lib/site-packages
+credentials.py
 /venv
 venv
 venv/
 __pycache__
-venv/Lib/site-packages
-credentials.py
+
