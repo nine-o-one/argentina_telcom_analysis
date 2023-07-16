@@ -1,16 +1,15 @@
 import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 import json
 import urllib.request
+import credentials
 
 #ACCESO A API
 ## DATOS DE CONECTIVIDAD A INTERNET EN ARGENTINA
 #*Fuente: https://datosabiertos.enacom.gob.ar/dashboards/20000/acceso-a-internet/*
 
 ### Leyendo Request a la API
-with urllib.request.urlopen('https://api.datosabiertos.enacom.gob.ar/api/v2/resources.json/?auth_key=ELJioxD1pDg7gdxvQfugkirauHiVrOSfliF5ElWo') as data2:
+api_key = credentials.api_key()
+with urllib.request.urlopen(f'https://api.datosabiertos.enacom.gob.ar/api/v2/resources.json/?auth_key={api_key}') as data2:
     data2 = json.load(data2)
 
 ### La API devuelve una lista con los recursos disponibles
@@ -23,7 +22,7 @@ datasets = recursos.query('Tipo == "dt"').query('Categoria == "Acceso a Internet
 ### Se accede a cada recurso y se busca su origen
 bucket_s3 = list()
 for i, dataset in datasets.iterrows():
-    with urllib.request.urlopen(f'https://api.datosabiertos.enacom.gob.ar/api/v2/datasets/{dataset["GUID"]}.json/?auth_key=ELJioxD1pDg7gdxvQfugkirauHiVrOSfliF5ElWo') as data:
+    with urllib.request.urlopen(f'https://api.datosabiertos.enacom.gob.ar/api/v2/datasets/{dataset["GUID"]}.json/?auth_key={api_key}') as data:
         data = json.load(data)
     bucket_s3.append({'Titulo': data['title'], 'Descripcion': data['description'], 'GUID': data['guid'], 'URL': data['download_url']})
 
@@ -41,9 +40,7 @@ normalizacion = {'Ciudad Autónoma de Buenos Aires': 'CABA','Capital Federal': '
 def extract_transform():
     mapa_conexion = pd.read_excel(bucket_s3[0]['URL'])
     accesos_tecnologia_localidad = pd.read_excel(bucket_s3[2]['URL'])
-    #accesos_tecnologia_localidad = accesos_tecnologia_localidad.drop(columns=['Total general']).melt(id_vars=['Provincia', 'Partido', 'Localidad', 'Link Indec'], var_name='Tipo Conexion', value_name='Cantidad')
     accesos_velocidad_provincia = pd.read_excel(bucket_s3[3]['URL'])
-    #accesos_velocidad_provincia = accesos_velocidad_provincia.melt(id_vars=['Provincia', 'Partido', 'Localidad', 'Link Indec'], var_name='Velocidad', value_name='Valor').fillna(0)
     velocidad_bajada = pd.read_excel(bucket_s3[4]['URL'])
     velocidad_bajada['Provincia'] = velocidad_bajada['Provincia'].replace(normalizacion) # Normalización
     penetracion = pd.read_excel(bucket_s3[1]['URL'], sheet_name='Penetracion-totales')
@@ -57,8 +54,12 @@ def extract_transform():
     accesos_velocidad_bajada['Provincia'] = accesos_velocidad_bajada['Provincia'].replace(normalizacion)#.melt(id_vars = ['Año', 'Trimestre', 'Provincia'], var_name='Velocidad', value_name='No. Conexiones').dropna()
     ingresos_operador = pd.read_excel(bucket_s3[9]['URL'])
     datos_macroeconomicos = pd.read_excel(bucket_s3[11]['URL'])
-    provincias = accesos_bandas['Provincia'].unique()
+    provincias = pd.DataFrame(accesos_bandas['Provincia'].unique()).rename(columns={0:'Provincia'})
+    localidades = accesos_tecnologia_localidad[['Provincia','Partido','Localidad']].drop_duplicates()
+    localidades['Llave']=localidades.index + 1
     periodos = ingresos_operador.drop(columns=['Ingresos (miles de pesos)'])
+
+
 
     # EXTRACCIÓN DATA DEMOGRÁFICA
     ## DATOS DE POBLACIÓN EN ARGENTICA POR PROVINCIA
@@ -74,4 +75,4 @@ def extract_transform():
     data_poblacion[['Total de población','Total de viviendas particulares', 'Población en viviendas particulares']]=data_poblacion[['Total de población','Total de viviendas particulares', 'Población en viviendas particulares']].astype('int64') #Convierte tipos
     data_poblacion['Personas por vivienda'] = data_poblacion['Total de población']/data_poblacion['Total de viviendas particulares'].values #Columns calculada
 
-    return mapa_conexion, accesos_tecnologia_localidad, accesos_velocidad_provincia, velocidad_bajada, penetracion, accesos_bandas, accesos_tipo_conexion, accesos_rango_velocidad, accesos_velocidad_bajada, ingresos_operador, datos_macroeconomicos, provincias, periodos, data_poblacion
+    return mapa_conexion, accesos_tecnologia_localidad, accesos_velocidad_provincia, velocidad_bajada, penetracion, accesos_bandas, accesos_tipo_conexion, accesos_rango_velocidad, accesos_velocidad_bajada, ingresos_operador, datos_macroeconomicos, provincias, localidades, periodos, data_poblacion
