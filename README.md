@@ -92,3 +92,47 @@ No se encuentra ninguna relación entre el precio del dolar y los ingresos de lo
 
  <sup><a href="#nota6">6</a></sup> : https://www.lanacion.com.ar/tecnologia/segun-indec-servicios-telefonia-movil-internet-aumentaron-nid2325651
 
+## KPIs
+
+Teniendo en cuenta las necesidades de negocio se proponen los siguientes KPIs:
+
+### 1. Penetración de Fibra Optica
+
+Si bien el costo de despliegue e instalación de nuevas redes de fibra óptica puede ser mayor que otras tecnologías como el coaxial y DSL, en el largo plazo puede llegar a gener ahorros anuales de hasta $53 USD por conexión<sup>[7](#nota7)</sup> debido a su bajo costo de operación, ya que requieren muy poca energía y su costo de mantenimiento es significativamente más bajo por su gran durabilidad.
+
+Por esta razón, es necesaria la actualización de las antiguas redes, brindando como valor agregado un mejor servicio a todos los usuarios.
+
+ <sup><a href="#nota7">7</a></sup> : https://www.bbcmag.com/broadband-applications/to-reduce-network-operating-expenses-choose-ftth
+
+#### Objetivo:
+Alcanzar el 75% de penetración de redes de fibra óptica en los próximos 3 años, en las provincias de Buenos Aires, CABA, Cordoba, Santa Fe, Mendoza y Tucuam.
+
+#### Calculo: 
+$Número de Conexiones de Fibra Óptica / Número de Conexiones Totales$
+
+### 2. Ingresos mensual por usuario
+
+Actualmente, el costo de retención de un cliente es mucho menor que el costo de adquirir nuevos clientes. Por esta razón, la mayoría de las compañias presupuesta más del 50% del total asignado a mercado solo para retención de clientes<sup>[8](#nota8)</sup>.
+
+Bajo este escenario, es importante conocer cómo se comporta la base de clientes activos en la compañía. Para monitorearlo es posible comparar los ingresos comerciales contra la base total de clientes, dando como resultado el ingreso por cliente.
+
+Generalmente, para capturar nuevos clientes las compañias utilizan grandes promociones que dan como resultado una disminución en el ingreso comercial por usuarios.
+
+<sup><a href="#nota8">8</a></sup> : https://www.bain.com/insights/retaining-customers-is-the-real-challenge/
+
+### Objetivo:
+Mantener el ingreso operativo mensual por usuario en mínimo $2.000 ARG por lo próximos 2 años.
+
+#### Calculo: 
+$Ingresos Totales del Mes / Número Usuarios Activos en el Mes$
+
+### 3. Velocidad media de bajada
+
+Actualmente, la velocidad media de bajada es un indicador importante de la calidad del servicio percibido por el usuario. La digitalización del trabajo, el acceso a servicios de Streaming y el IOT generan una mayor carga en el ancho de banda de las redes domésticas.
+
+### Objetivo:
+Incrementar la velocidad media de bajada en las provincias de Buenos Aires, CABA, Cordoba, Santa Fe, Mendoza y Tucuam a 80 Mbps en los próxmos 3 años.
+
+### Calculo:
+$\sum Velocidad Contratada / Total de Usuarios$  
+
